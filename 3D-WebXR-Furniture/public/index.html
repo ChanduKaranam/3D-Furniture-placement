@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Web site created using create-react-app"
+    />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <title>WebXR Furniture</title>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+
+    <div id="loading-container" style="display: none;">
+      <div class="spinner"></div>
+      <p>Scanning for surfaces...</p>
+    </div>
+
+    <!-- START: ADD THIS INSTRUCTION CONTAINER -->
+    <div id="instruction-container" style="display: none;">
+      <p>Select The furniture you want to try out from below. Point the circle at the position you want to place and tap on the screen.</p>
+    </div>
+    <!-- END: ADD THIS INSTRUCTION CONTAINER -->
+
+    <canvas id="canvas"></canvas>
+    <div class="navbar">
+      <img class="button-image" id="item0" src="/1.png" />
+      <img class="button-image" id="item1" src="/2.png" />
+      <img class="button-image" id="item2" src="/3.png" />
+      <img class="button-image" id="item3" src="/4.png" />
+      <img class="button-image" id="item4" src="/5.png" />
+      <img class="button-image" id="item5" src="/6.png" />
+    </div>
+  </body>
+</html>

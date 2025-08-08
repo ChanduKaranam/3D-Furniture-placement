@@ -1,0 +1,144 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+#canvas {
+  width: 100%;
+  height: 81vh; /* MODIFIED: Adjusted to make room for the taller navbar */
+}
+
+/* === START: MODIFIED NAVBAR AND ITEM STYLES === */
+
+/* The Navbar Container - Now slightly taller */
+.navbar {
+  background-color: rgba(245, 245, 245, 0.7);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 -5px 25px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 19vh; /* MODIFIED: Increased from 18vh */
+  overflow-y: hidden;
+  overflow-x: scroll;
+  white-space: nowrap;
+  padding: 12px 15px;
+  box-sizing: border-box;
+  z-index: 10;
+  display: flex;
+  align-items: center; /* This keeps the icons vertically centered */
+}
+
+/* Custom Scrollbar for the Light Theme */
+.navbar::-webkit-scrollbar {
+  height: 7px;
+}
+.navbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.navbar::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+}
+
+/* The Furniture Items */
+.navbar .button-image {
+  border-radius: 20px;
+  border: 3px solid transparent;
+  background-color: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+  display: inline-block;
+  margin: 0 5px;
+  width: 100px;
+  height: 100px;
+  box-sizing: border-box;
+  cursor: pointer;
+  vertical-align: middle;
+}
+
+/* Hover effect for UNSELECTED items */
+.navbar .button-image:not(.clicked):hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* The Selected Item - Modified with border glow */
+.clicked {
+  border-color: #a1d9ff;
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.1),
+    inset 0 0 8px rgba(161, 217, 255, 0.4);
+  transform: translateY(-8px) scale(1.1);
+}
+
+/* Ensure clicked state persists on hover */
+.clicked:hover {
+  transform: translateY(-8px) scale(1.1);
+  border-color: #a1d9ff;
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.1),
+    inset 0 0 8px rgba(161, 217, 255, 0.4);
+}
+
+/* === END: MODIFIED NAVBAR AND ITEM STYLES === */
+
+/* --- UNTOUCHED STYLES FOR LOADING AND INSTRUCTIONS --- */
+#loading-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+  color: white;
+}
+
+#loading-container p {
+  font-size: 1.2em;
+  margin-top: 20px;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.spinner {
+  border: 6px solid rgba(255, 255, 255, 0.3);
+  border-top: 6px solid #ffffff;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+#instruction-container {
+  position: fixed;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 20px;
+  text-align: center;
+}
